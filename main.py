@@ -91,10 +91,7 @@ def main(folder: Path):
 if __name__ == "__main__":
     # Set-ExecutionPolicy Bypass
 
-    folder_for_scan = Path("garbage")
-    main(folder_for_scan)
-
-    # if sys.argv[1]:
-    #     folder_for_scan = Path(sys.argv[1])
-    #     print(f"Start in folder: {folder_for_scan.resolve()}")
-    #     main(folder_for_scan.resolve())
+    if sys.argv[1]:
+        folder_for_scan = Path(sys.argv[1])
+        print(f"Start in folder: {folder_for_scan.resolve()}")
+        main(folder_for_scan.resolve())
