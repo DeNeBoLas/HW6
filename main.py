@@ -75,21 +75,26 @@ def main(folder: Path):
     for file in parser.AMR_AUDIO:
         handle_media(file, folder / "audio" / "AMR")
     for file in parser.ZIP_ARCHIVES:
-        handle_media(file, folder / "archives" / "ZIP_ARCHIVES")
+        handle_archive(file, folder / "archives" / "ZIP_ARCHIVES")
     for file in parser.GZ_ARCHIVES:
-        handle_media(file, folder / "archives" / "GZ_ARCHIVES")
+        handle_archive(file, folder / "archives" / "GZ_ARCHIVES")
     for file in parser.TAR_ARCHIVES:
-        handle_media(file, folder / "archives" / "TAR_ARCHIVES")
+        handle_archive(file, folder / "archives" / "TAR_ARCHIVES")
 
     for file in parser.MY_OTHER:
-        handle_media(file, folder / "MY_OTHER")
+        handle_other(file, folder / "MY_OTHER")
 
     for folder in parser.FOLDERS[::-1]:
         handle_folder(folder)
 
 
 if __name__ == "__main__":
-    if sys.argv[1]:
-        folder_for_scan = Path(sys.argv[1])
-        print(f"Start in folder: {folder_for_scan.resolve()}")
-        main(folder_for_scan.resolve())
+    # Set-ExecutionPolicy Bypass
+
+    folder_for_scan = Path("garbage")
+    main(folder_for_scan)
+
+    # if sys.argv[1]:
+    #     folder_for_scan = Path(sys.argv[1])
+    #     print(f"Start in folder: {folder_for_scan.resolve()}")
+    #     main(folder_for_scan.resolve())
