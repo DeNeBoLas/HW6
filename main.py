@@ -88,10 +88,13 @@ def main(folder: Path):
         handle_folder(folder)
 
 
-if __name__ == "__main__":
-    # Set-ExecutionPolicy Bypass
-
+def run():
     if sys.argv[1]:
         folder_for_scan = Path(sys.argv[1])
         print(f"Start in folder: {folder_for_scan.resolve()}")
         main(folder_for_scan.resolve())
+
+
+if __name__ == "__main__":
+    # Set-ExecutionPolicy Bypass
+    run()
